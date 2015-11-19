@@ -55,6 +55,11 @@
 				   
 				   $( "#viewer" ).html( content );
 				   
+				   // remove ads div
+				   $( ".btflb" ).remove(); 
+				   $( ".atflb" ).remove(); 
+				   
+				   
 				   $('#viewer a').attr('href', function(index, src) {
 					    if(src) {
 							if(src.charAt(0) == '/') {

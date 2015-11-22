@@ -19,72 +19,31 @@
   <body>
 	
 		<a id="homelink" href="/poewiki/index.html">Home</a>
-		<div id="viewer"></div>
+		<div id="content" itemprop="articleBody" class="mw-body">
 		
-		<script>
+		  Sorry, gamepedia.com blocked the proxy I was using the load the PoE wiki.
+		  <br/>
+		  <br/>In case you want to get those ads blocked, here's a few good extensions for Chrome:
+		  
+			<ul>
+			   <li> Adguard - <a href="https://chrome.google.com/webstore/detail/adguard-adblocker/bgnkhhnnamicmpeenaelnjfhikgbkllg/related">link</a>
+			   <li> Ghostery - <a href="https://chrome.google.com/webstore/detail/ghostery/mlomiejdfkolichcflejclcbmpeaniij/related">link</a>
+			</ul>
+
+  <p>
+  Adguard is a Free, powerful, non-intrusive, lightweight. Plus it features a cool interface and it works amazingly well everywhere.
+  </p>
+  <p>
+  Ghostery will kill every tracking script/tool/crap, remove social buttons/crap and make pagest faster (less crap => more speed).
+  </p>
+  
+  <p>
+   If anyone know the equivalents of these for Firefox, would appreciate if you'd let me know - pm me in reddit: /u/ProFalseIdol
+  </p>
 		
-				function getParameterByName(name) {
-				    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-				    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-				        results = regex.exec(location.search);
-				    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-				}
-				
-				$.ajaxPrefilter( function (options) {
-				  if (options.crossDomain && jQuery.support.cors) {
-				    var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
-				    options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
-				    //options.url = "http://cors.corsproxy.io/url=" + options.url;
-				  }
-				});
-				
-				
-				var url = window.location.href
-				
-				var page = getParameterByName('page');
-				
-				if(!page) {
-				 page = "Path_of_Exile_Wiki"
-				}
-				
-				// "http://pathofexile.gamepedia.com/List_of_unique_amulets"
-				$.get( "http://pathofexile.gamepedia.com/" + page, function(data) {
-				
-				   var content = $('#content', $(data))
-				   
-				   
-				   $( "#viewer" ).html( content );
-				   
-				   // remove ads div
-				   $( ".btflb" ).remove(); 
-				   $( ".atflb" ).remove();
-				   
-				   $( "#contentSub" ).remove(); 
-				   
-				   $('#viewer a').attr('href', function(index, src) {
-					    if(src) {
-							if(src.charAt(0) == '/') {
-							  src = src.substr(1); 
-							  return location.pathname + "?page=" + src;
-							}
-						}
-						return src;
-				   });
-				   
-				   $('#viewer table.sortable').each(function(){
-								$(this).prepend('<thead></thead>')
-								$(this).find('thead').append($(this).find("tr:eq(0)"));
-							   
-				   });
-				
-					$('#viewer table.sortable').tablesorter(); 
-					
-					// set sorting column and direction, this will sort on the first and third column the column index starts at zero 
-				    var sorting = [[2,0]]; 
-				    $('#viewer table.sortable').trigger("sorton",[sorting]); 
-				} );
+		</div>
 		
-		</script>
+	
 
 		<div role="contentinfo" id="footer">
 									<ul id="footer-info">
